@@ -1,0 +1,11 @@
+.footer-container {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .footer-text {
+    font-size: 14px;
+  }
+  

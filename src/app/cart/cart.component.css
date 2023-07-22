@@ -1,0 +1,29 @@
+/* cart.component.css */
+h2 {
+    text-align: center;
+  }
+  
+  div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 5px;
+  }
+  
+  h3 {
+    margin: 0;
+  }
+  
+  p {
+    margin: 0;
+    margin-left: 10px;
+  }
+  
+  /* Adicione mais estilos conforme necessário */
+  

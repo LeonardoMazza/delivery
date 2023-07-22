@@ -1,0 +1,41 @@
+<div class="container">
+  <div *ngIf="cartItems.length > 0; else emptyCart" class="my-4">
+    <h2>Seu Carrinho</h2>
+    <div class="table-responsive">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">Imagem</th>
+            <th scope="col">Produto</th>
+            <th scope="col">Qtd</th>
+            <th scope="col">Valor</th>
+            <th scope="col">Ações</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of cartItems">
+            <td>
+              <img [src]="item.image" alt="Imagem do produto" style="width: 50px; height: 50px;">
+            </td>
+            <td>
+              <div class="d-flex align-items-center">
+                <span>{{ item.name }}</span>
+              </div>
+            </td>
+            <td>{{ item.quantity }}</td>
+            <td>R$ {{ item.price * item.quantity | number: '1.2-2' }}</td>
+            <td>
+              <button (click)="removeFromCart(item.id)" class="btn btn-danger">Remover</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p>Total do carrinho: R$ {{ total | number: '1.2-2' }}</p>
+    <a routerLink="/checkout" class="btn btn-primary">Ir para o Checkout</a>
+  </div>
+
+  <ng-template #emptyCart>
+    <p>Seu carrinho está vazio.</p>
+  </ng-template>
+</div>

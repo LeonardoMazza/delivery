@@ -1,0 +1,14 @@
+<!-- src/app/register/register.component.html -->
+
+<div class="register-container">
+    <h1>Registro</h1>
+    
+    <form (ngSubmit)="onRegister(form)" #form="ngForm">
+      <input type="email" placeholder="Email" name="email" ngModel required>
+      <input type="password" placeholder="Password" name="password" ngModel required>
+      <button type="submit">Registrar</button>
+    </form>
+    
+    <a routerLink="/login">Já tenho uma conta</a>
+  </div>
+  
