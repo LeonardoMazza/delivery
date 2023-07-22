@@ -1,7 +1,24 @@
-<form (submit)="signIn()" class="login-form">
-    <label for="email">Email</label>
-    <input id="email" [(ngModel)]="email" type="text" name="email" required>
-    <label for="password">Senha</label>
-    <input id="password" [(ngModel)]="password" type="password" name="password" required>
-    <button type="submit">Login</button>
-</form>
+<div class="container my-5">
+    <div class="row justify-content-center">
+      <div class="col-12 col-sm-8 col-md-6">
+        <form (submit)="signIn()" class="login-form bg-light p-4">
+          <div class="mb-3">
+            <label for="email" class="form-label visually-hidden">Email</label>
+            <div class="input-group">
+              <div class="input-group-text"><i class="bi bi-envelope"></i></div>
+              <input id="email" [(ngModel)]="email" type="text" name="email" class="form-control" placeholder="Email" required>
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="password" class="form-label visually-hidden">Senha</label>
+            <div class="input-group">
+              <div class="input-group-text"><i class="bi bi-lock"></i></div>
+              <input id="password" [(ngModel)]="password" type="password" name="password" class="form-control" placeholder="Senha" required>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary">Login</button>
+        </form>
+      </div>
+    </div>
+</div>
+  
