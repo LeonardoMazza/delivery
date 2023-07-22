@@ -1,27 +1,37 @@
-<div class="container my-3">
-  <div class="row">
-    <div class="col-12">
-      <form (ngSubmit)="submitCheckoutForm()">
-        <!-- Campos do formulário de checkout -->
-        <div>
-          <label for="name">Nome:</label>
-          <input type="text" id="name" name="name" [(ngModel)]="checkoutData.name" required>
-        </div>
-      
-        <div>
-          <label for="address">Endereço:</label>
-          <input type="text" id="address" name="address" [(ngModel)]="checkoutData.address" required>
-        </div>
-      
-        <div>
-          <label for="email">E-mail:</label>
-          <input type="email" id="email" name="email" [(ngModel)]="checkoutData.email" required>
-        </div>
-      
-        <!-- Botão para finalizar a compra -->
-        <button type="submit">Finalizar Compra</button>
-      </form>
-      
+<div class="container my-5">
+  <div class="row justify-content-center">
+    <div class="col-12 col-md-8">
+      <div class="checkout-form bg-light p-4 rounded">
+        <form (ngSubmit)="submitCheckoutForm()">
+          <!-- Campos do formulário de checkout -->
+          <div class="mb-3">
+            <label for="name" class="form-label">Nome:</label>
+            <div class="input-group">
+              <span class="input-group-text"><i class="bi bi-person"></i></span>
+              <input type="text" class="form-control" id="name" name="name" [(ngModel)]="checkoutData.name" required>
+            </div>
+          </div>
+        
+          <div class="mb-3">
+            <label for="address" class="form-label">Endereço:</label>
+            <div class="input-group">
+              <span class="input-group-text"><i class="bi bi-house-door"></i></span>
+              <input type="text" class="form-control" id="address" name="address" [(ngModel)]="checkoutData.address" required>
+            </div>
+          </div>
+        
+          <div class="mb-3">
+            <label for="email" class="form-label">E-mail:</label>
+            <div class="input-group">
+              <span class="input-group-text"><i class="bi bi-envelope"></i></span>
+              <input type="email" class="form-control" id="email" name="email" [(ngModel)]="checkoutData.email" required>
+            </div>
+          </div>
+        
+          <!-- Botão para finalizar a compra -->
+          <button type="submit" class="btn btn-primary">Finalizar Compra</button>
+        </form>
+      </div>
     </div>
   </div>
 </div>
