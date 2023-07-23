@@ -22,6 +22,11 @@
         <li class="nav-item" *ngIf="userLoggedIn">
           <a routerLink="/dashboard" class="nav-link">Meus Pedidos</a>
         </li>
+        <li class="nav-item" *ngIf="userLoggedIn">
+          <a routerLink="/profile" class="nav-link">
+            <i class="bi bi-person-circle"></i>
+          </a>
+        </li>
         <li class="nav-item">
           <a routerLink="/cart" class="nav-link">
             <span class="position-relative">

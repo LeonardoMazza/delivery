@@ -11,11 +11,6 @@ import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './register/register.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AppRoutingModule } from './app-routing.module';
-import { OrderListComponent } from './order-list/order-list.component';
-import { OrderDetailsComponent } from './order-details/order-details.component';
-import { OrderTrackingComponent } from './order-tracking/order-tracking.component';
-import { CreateOrderComponent } from './create-order/create-order.component';
-import { EditOrderComponent } from './edit-order/edit-order.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { ProductListModule } from './product-list/product-list.module';
@@ -23,7 +18,7 @@ import { CartComponent } from './cart/cart.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { CommonModule, DecimalPipe } from '@angular/common';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-
+import { ProfileComponent } from './profile/profile.component';
 
 
 @NgModule({
@@ -39,7 +34,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     DecimalPipe,
     NgbModule
   ],
-  declarations: [AppComponent, LoginComponent, HomeComponent, RegisterComponent, DashboardComponent, OrderListComponent, OrderDetailsComponent, OrderTrackingComponent, CreateOrderComponent, EditOrderComponent, HeaderComponent, FooterComponent, CartComponent, CheckoutComponent],
+  declarations: [AppComponent, LoginComponent, HomeComponent, RegisterComponent, DashboardComponent, HeaderComponent, FooterComponent, CartComponent, CheckoutComponent, ProfileComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
