@@ -28,21 +28,21 @@ export class ProductListComponent implements OnInit {
     this.products = this.productService.getAllProducts();
     this.filteredProducts = [...this.products];
   }
-  
+
   addToCart(product: Product): void {
     this.cartService.addToCart(product);
     this.cartService.updateCartItemCount();
   }
 
-   // Função para filtrar os produtos com base na pesquisa
-   searchProducts() {
+  // Função para filtrar os produtos com base na pesquisa
+  searchProducts() {
     if (this.searchTerm.trim()) {
       const lowerCaseSearch = this.searchTerm.toLowerCase();
       this.filteredProducts = this.products.filter(product =>
         product.name.toLowerCase().includes(lowerCaseSearch)
       );
     } else {
-      this.filteredProducts = [...this.products]
+      this.filteredProducts = [...this.products];
     }
   }
 
@@ -51,5 +51,5 @@ export class ProductListComponent implements OnInit {
     this.searchTerm = '';
     this.filteredProducts = [...this.products];
   }
-  
+
 }

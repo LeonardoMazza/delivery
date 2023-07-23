@@ -1,11 +1,11 @@
 <div class="container my-3">
   <div class="row mb-3">
     <div class="col">
-      <form (submit)="searchProducts()" class="d-flex">
-        <input class="form-control me-2" name="search" type="search" placeholder="Procurar produto" aria-label="Search" [(ngModel)]="searchTerm">
-        <button class="btn btn-outline-success" type="submit">Procurar</button>
-        <button class="btn btn-outline-secondary mx-2" type="button" (click)="clearSearch()">Limpar</button>
-      </form>
+      <div class="d-flex mb-3">
+        <input class="form-control me-2" type="search" placeholder="Procurar produto" aria-label="Search"
+          [(ngModel)]="searchTerm" (input)="searchProducts()">
+        <button class="btn btn-outline-secondary" type="button" (click)="clearSearch()">Limpar</button>
+      </div>
     </div>
   </div>
   <div class="row">
