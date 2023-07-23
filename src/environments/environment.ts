@@ -3,6 +3,7 @@ export const environment = {
   firebase: {
     apiKey: "AIzaSyCrtSp8yxuR7cYeYIbsJoALgknfmQlb5w0",
     authDomain: "delivery-7d9f3.firebaseapp.com",
+    databaseURL: "https://delivery-7d9f3-default-rtdb.firebaseio.com",
     projectId: "delivery-7d9f3",
     storageBucket: "delivery-7d9f3.appspot.com",
     messagingSenderId: "622052738025",
