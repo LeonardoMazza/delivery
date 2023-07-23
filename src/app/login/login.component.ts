@@ -6,15 +6,16 @@ import { AuthService } from '../auth.service';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-
 export class LoginComponent {
-  email = '';
-  password = '';
+  email: string = '';
+  password: string = '';
 
-  constructor(private authService: AuthService) {}
+  constructor(private authService: AuthService) { }
 
   signIn() {
-    this.authService.signIn(this.email, this.password);
-    this.email = this.password = '';
+    this.authService.signIn(this.email, this.password)
+      .catch((error) => {
+        alert('Falha no login. Verifique suas credenciais.');
+      });
   }
 }

@@ -21,10 +21,10 @@ export class RegisterComponent {
     const { email, password } = form.value;
     
     this.auth.createUserWithEmailAndPassword(email, password).then(result => {
-      console.log(result);
       this.router.navigate(['/']);
     }).catch(error => {
-      console.error(error);
+      alert('Falha no registro. Verifique suas credenciais.');
+
     });
   }
 }
