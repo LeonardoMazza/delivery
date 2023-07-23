@@ -1,1 +1,39 @@
-<p>profile works!</p>
+<div class="container my-5">
+    <div class="row">
+      <div class="col-md-3">
+        <!-- Tabs navigation -->
+        <ul class="nav nav-tabs flex-column">
+          <li class="nav-item">
+            <a class="nav-link" [ngClass]="{ 'active': activeTab === 'my-data' }" (click)="activeTab = 'my-data'">Meus Dados</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [ngClass]="{ 'active': activeTab === 'my-orders' }" (click)="activeTab = 'my-orders'">Meus Pedidos</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [ngClass]="{ 'active': activeTab === 'my-addresses' }" (click)="activeTab = 'my-addresses'">Meus Endereços</a>
+          </li>
+        </ul>
+      </div>
+      <div class="col-md-9">
+        <!-- Tabs content -->
+        <div *ngIf="activeTab === 'my-data'">
+          <!-- Conteúdo da aba "Meus Dados" -->
+          <h4>Meus Dados</h4>
+          <p>Nome: {{ user?.name }}</p>
+          <p>Email: {{ user?.email }}</p>
+          <p>Telefone: {{ user?.phoneNumbers }}</p>
+        </div>
+        <div *ngIf="activeTab === 'my-orders'">
+          <!-- Conteúdo da aba "Meus Pedidos" -->
+          <h4>Meus Pedidos</h4>
+          <!-- Coloque aqui o conteúdo dos pedidos do usuário -->
+        </div>
+        <div *ngIf="activeTab === 'my-addresses'">
+          <!-- Conteúdo da aba "Meus Endereços" -->
+          <h4>Meus Endereços</h4>
+          <p>Endereço: {{ user?.address }}</p>
+        </div>
+      </div>
+    </div>
+</div>
+  

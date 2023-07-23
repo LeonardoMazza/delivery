@@ -19,8 +19,6 @@ import { CheckoutComponent } from './checkout/checkout.component';
 import { CommonModule, DecimalPipe } from '@angular/common';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ProfileComponent } from './profile/profile.component';
-
-
 @NgModule({
   imports: [
     BrowserModule,
@@ -32,7 +30,7 @@ import { ProfileComponent } from './profile/profile.component';
     ProductListModule,
     CommonModule,
     DecimalPipe,
-    NgbModule
+    NgbModule,
   ],
   declarations: [AppComponent, LoginComponent, HomeComponent, RegisterComponent, DashboardComponent, HeaderComponent, FooterComponent, CartComponent, CheckoutComponent, ProfileComponent],
   bootstrap: [AppComponent]

@@ -20,20 +20,19 @@
           <a routerLink="/register" class="nav-link">Cadastrar</a>
         </li>
         <li class="nav-item" *ngIf="userLoggedIn">
-          <a routerLink="/dashboard" class="nav-link">Meus Pedidos</a>
-        </li>
-        <li class="nav-item" *ngIf="userLoggedIn">
           <a routerLink="/profile" class="nav-link">
-            <i class="bi bi-person-circle"></i>
+            <i class="bi bi-person-circle mr-5"></i>
+            Meu perfil 
           </a>
         </li>
         <li class="nav-item">
           <a routerLink="/cart" class="nav-link">
             <span class="position-relative">
               <i class="bi bi-cart-fill"></i>
-              <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+              <span class="badge rounded-pill bg-danger">
                 {{ cartService.cartItemCount }}
               </span>
+              Carrinho
             </span>
           </a>
         </li>
