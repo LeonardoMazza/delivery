@@ -23,6 +23,7 @@ import { CartComponent } from './cart/cart.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { CommonModule, DecimalPipe } from '@angular/common';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ProfileComponent } from './profile/profile.component';
 
 
 
@@ -39,7 +40,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     DecimalPipe,
     NgbModule
   ],
-  declarations: [AppComponent, LoginComponent, HomeComponent, RegisterComponent, DashboardComponent, OrderListComponent, OrderDetailsComponent, OrderTrackingComponent, CreateOrderComponent, EditOrderComponent, HeaderComponent, FooterComponent, CartComponent, CheckoutComponent],
+  declarations: [AppComponent, LoginComponent, HomeComponent, RegisterComponent, DashboardComponent, OrderListComponent, OrderDetailsComponent, OrderTrackingComponent, CreateOrderComponent, EditOrderComponent, HeaderComponent, FooterComponent, CartComponent, CheckoutComponent, ProfileComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
