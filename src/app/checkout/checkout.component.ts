@@ -2,7 +2,8 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { CartService } from '../cart.service';
-
+import { UserDataService } from '../userData/user-data.service';
+import { User } from '../userData/user.model';
 
 @Component({
   selector: 'app-checkout',
@@ -13,14 +14,15 @@ export class CheckoutComponent implements OnInit, OnDestroy {
   cartItems: any[] = [];
   total: number = 0;
   private cartSubscription: Subscription = new Subscription();
+  user: User | undefined;
 
   checkoutData = {
     name: '',
     address: '',
-    email: ''
+    phone: ''
   };
 
-  constructor(private cartService: CartService, private router: Router) { }
+  constructor(private cartService: CartService, private userDataService: UserDataService) { }
 
   ngOnInit() {
     this.cartItems = this.cartService.cartItems;
@@ -30,6 +32,16 @@ export class CheckoutComponent implements OnInit, OnDestroy {
         this.total = this.cartService.getCartTotal();
       }
     );
+
+    this.userDataService.getAllUsers().subscribe((users) => {
+      this.user = users[0];
+      if (this.user) {
+        this.checkoutData.name = this.user.name;
+        this.checkoutData.address = this.user.address;
+        this.checkoutData.phone = this.user.phoneNumbers;
+      }
+    });
+    
   }
 
   ngOnDestroy() {
@@ -38,11 +50,9 @@ export class CheckoutComponent implements OnInit, OnDestroy {
 
   submitCheckoutForm() {
     this.redirectToWhatsApp();
-    console.log(this.checkoutData);
   }
 
   redirectToWhatsApp() {
-    // Montar a mensagem com os dados do carrinho e do checkout
     let message = 'Olá, gostaria de fazer o pedido:\n\n';
     for (const item of this.cartItems) {
       const totalPrice = (item.price * item.quantity).toFixed(2);
@@ -52,13 +62,11 @@ export class CheckoutComponent implements OnInit, OnDestroy {
     const totalCartPrice = this.cartService.getCartTotal().toFixed(2);
     message += `\nTotal do pedido: R$ ${totalCartPrice}\n\n`;
 
-    // Dados do checkout
     message += `Dados de Checkout:\n`;
     message += `Nome: ${this.checkoutData.name}\n`;
     message += `Endereço: ${this.checkoutData.address}\n`;
-    message += `E-mail: ${this.checkoutData.email}\n`;
+    message += `Telefone: ${this.checkoutData.phone}\n`;
 
-    // Redirecionar para o WhatsApp com a mensagem
     const whatsappLink = `https://wa.me/351912875342/?text=${encodeURIComponent(message)}`;
     window.open(whatsappLink, '_blank');
   }
