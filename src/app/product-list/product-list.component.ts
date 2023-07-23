@@ -19,17 +19,37 @@ interface Product {
 })
 export class ProductListComponent implements OnInit {
   products: Product[] = [];
-  cols: number = 1;
+  filteredProducts: Product[] = [];
+  searchTerm: string = '';
 
   constructor(private productService: ProductService, private cartService: CartService) { }
 
   ngOnInit() {
     this.products = this.productService.getAllProducts();
+    this.filteredProducts = [...this.products];
   }
   
   addToCart(product: Product): void {
     this.cartService.addToCart(product);
     this.cartService.updateCartItemCount();
+  }
+
+   // Função para filtrar os produtos com base na pesquisa
+   searchProducts() {
+    if (this.searchTerm.trim()) {
+      const lowerCaseSearch = this.searchTerm.toLowerCase();
+      this.filteredProducts = this.products.filter(product =>
+        product.name.toLowerCase().includes(lowerCaseSearch)
+      );
+    } else {
+      this.filteredProducts = [...this.products]
+    }
+  }
+
+  // Função para limpar a pesquisa e exibir todos os produtos novamente
+  clearSearch() {
+    this.searchTerm = '';
+    this.filteredProducts = [...this.products];
   }
   
 }

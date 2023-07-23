@@ -1,6 +1,15 @@
 <div class="container my-3">
+  <div class="row mb-3">
+    <div class="col">
+      <form (submit)="searchProducts()" class="d-flex">
+        <input class="form-control me-2" name="search" type="search" placeholder="Procurar produto" aria-label="Search" [(ngModel)]="searchTerm">
+        <button class="btn btn-outline-success" type="submit">Procurar</button>
+        <button class="btn btn-outline-secondary mx-2" type="button" (click)="clearSearch()">Limpar</button>
+      </form>
+    </div>
+  </div>
   <div class="row">
-    <div class="col-12 col-sm-6 col-md-6 col-lg-3" *ngFor="let product of products">
+    <div class="col-12 col-sm-6 col-md-6 col-lg-3" *ngFor="let product of filteredProducts">
       <div class="card my-3">
         <img class="card-img-top" [src]="product.image" alt="Imagem do produto">
         <div class="card-body">
